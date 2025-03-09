@@ -23,9 +23,8 @@ public class Barrier implements IBarrier {
 
     @Override
     public void freeAll() {
-// Durch Erhöhen von currentWaitingPhase verlassen alle Threads die
-// await−Methode , da ihre Phase kleiner ist . dann Alle Threads , die await
-// nach diesem freeAll aufrufen ,
+        // By increasing currentWaitingPhase all threads leave the await method because their phase is smaller. then
+        // all threads that call await after this freeAll will
         ++currentWaitingPhase;
         threadsInCurrentWaitingPhase = 0;
         this.notifyAll();
